@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int GT (int a);
+
+int main()
+{
+	int n, S = 0;
+	do 
+	{
+		printf ("\n Nhap Vao So Nguyen Duong Le <= 15 : ");
+		scanf ("%d", &n);
+	} 
+	while ((!(0 < n && n <=15))&&(n%2==0));
+	
+	printf ("%d", n);
+	for (int i = 0; i <= n; i++)
+		if (i%2==0)
+			S += GT(n)/(GT(i)*GT(n-i));
+	printf (" S = %d", S);
+}
+
+int GT (int a)
+{
+	int sum = 1;
+	for (int i = 1; i <= a; i++)
+		sum *= i;
+	return sum;
+}
